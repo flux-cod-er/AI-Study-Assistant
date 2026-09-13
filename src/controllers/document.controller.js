@@ -254,11 +254,11 @@ export const getDashboardStats = async (req, res) => {
   try {
 
     const totalDocuments = await Document.countDocuments({
-      userId: req.user._id,
+      userId: req.user.id,
     });
 
     const aiResults = await AIResult.find({
-      userId: req.user._id,
+      userId: req.user.id,
     });
 
     const summaries = aiResults.filter(
